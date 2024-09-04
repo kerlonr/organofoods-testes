@@ -392,3 +392,6 @@ footer ul li {
   display: none;
   margin-bottom: 10px;
 }
+.input-error {
+  border: 2px solid red;
+}

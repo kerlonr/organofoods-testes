@@ -36,29 +36,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("next-to-step-3").addEventListener("click", () => {
-    const nome = document.getElementById("nome").value.trim();
-    const numero = document.getElementById("numero").value.trim();
-    const cidade = document.getElementById("cidade").value.trim();
-    const rua = document.getElementById("rua").value.trim();
-    const numeroCasa = document.getElementById("numero-casa").value.trim();
-    const bairro = document.getElementById("bairro").value.trim();
+    const nome = document.getElementById("nome");
+    const numero = document.getElementById("numero");
+    const cidade = document.getElementById("cidade");
+    const rua = document.getElementById("rua");
+    const numeroCasa = document.getElementById("numero-casa");
+    const bairro = document.getElementById("bairro");
     const errorMessage = document.getElementById("form-error");
 
-    if (!nome || !numero || !cidade || !rua || !numeroCasa || !bairro) {
+    // Remove classes de erro
+    document.querySelectorAll(".form-control").forEach((input) => {
+      input.classList.remove("input-error");
+    });
+
+    if (
+      !nome.value.trim() ||
+      !numero.value.trim() ||
+      !cidade.value.trim() ||
+      !rua.value.trim() ||
+      !numeroCasa.value.trim() ||
+      !bairro.value.trim()
+    ) {
       errorMessage.innerText =
         "* Por favor, preencha todos os campos obrigatórios.";
       errorMessage.style.display = "block";
+
+      // Adiciona classe de erro aos campos vazios
+      if (!nome.value.trim()) nome.classList.add("input-error");
+      if (!numero.value.trim()) numero.classList.add("input-error");
+      if (!cidade.value.trim()) cidade.classList.add("input-error");
+      if (!rua.value.trim()) rua.classList.add("input-error");
+      if (!numeroCasa.value.trim()) numeroCasa.classList.add("input-error");
+      if (!bairro.value.trim()) bairro.classList.add("input-error");
+
       return;
     }
 
     errorMessage.style.display = "none";
 
-    document.getElementById("summary-nome").innerText = nome;
-    document.getElementById("summary-numero").innerText = numero;
-    document.getElementById("summary-cidade").innerText = cidade;
-    document.getElementById("summary-rua").innerText = rua;
-    document.getElementById("summary-numero-casa").innerText = numeroCasa;
-    document.getElementById("summary-bairro").innerText = bairro;
+    document.getElementById("summary-nome").innerText = nome.value.trim();
+    document.getElementById("summary-numero").innerText = numero.value.trim();
+    document.getElementById("summary-cidade").innerText = cidade.value.trim();
+    document.getElementById("summary-rua").innerText = rua.value.trim();
+    document.getElementById("summary-numero-casa").innerText =
+      numeroCasa.value.trim();
+    document.getElementById("summary-bairro").innerText = bairro.value.trim();
 
     showStep(2);
   });
@@ -144,3 +166,6 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
   icons.classList.toggle("active");
 });
+function validarEntrada(input) {
+  input.value = input.value.replace(/\D/g, "");
+}

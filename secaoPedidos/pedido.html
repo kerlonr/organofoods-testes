@@ -159,7 +159,13 @@
         </div>
         <div class="mb-3">
           <label for="numero" class="form-label">Número de Telefone *</label>
-          <input type="tel" class="form-control" id="numero" required />
+          <input
+            type="tel"
+            class="form-control"
+            id="numero"
+            oninput="validarEntrada(this)"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="cidade" class="form-label">Cidade *</label>
@@ -171,7 +177,13 @@
         </div>
         <div class="mb-3">
           <label for="numero-casa" class="form-label">Número da Casa *</label>
-          <input type="text" class="form-control" id="numero-casa" required />
+          <input
+            type="number"
+            class="form-control"
+            id="numero-casa"
+            oninput="validarEntrada(this)"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="bairro" class="form-label">Bairro *</label>

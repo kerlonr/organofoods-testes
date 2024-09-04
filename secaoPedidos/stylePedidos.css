@@ -184,7 +184,8 @@ nav ul li a {
 .product-card img {
   max-width: 100%;
   border-bottom: 1px solid #e9ecef;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
+  width: 100%;
 }
 
 .product-card h5 {
@@ -334,7 +335,16 @@ footer ul li {
     margin: 0;
     width: 90%;
   }
-
+  .product-card {
+    border: 1px solid #e9ecef;
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 2rem;
+  }
   .services-grid {
     grid-template-columns: 1fr;
   }

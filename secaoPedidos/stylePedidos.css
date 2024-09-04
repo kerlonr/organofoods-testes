@@ -146,8 +146,9 @@ nav ul li a {
 
 .step-indicators {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .step-indicators .indicator {
